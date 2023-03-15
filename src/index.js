@@ -1,10 +1,10 @@
 import http from "http";
-import "dotenv/config.js";
 import getArgs from "./helpers/args.js";
+import {config} from "../config.js";
 import {printError, printWeather} from "./services/log.service.js";
 
-const API_KEY = process.env.ACCESS_KEY
-const BASE_URL = process.env.BASE_URL
+const API_KEY = config.key
+const BASE_URL = config.url
 
 export const getForecast = async () => {
     const city = getArgs(process.argv)._[0]
